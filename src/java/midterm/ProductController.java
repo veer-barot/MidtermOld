@@ -79,6 +79,7 @@ public class ProductController {
             String sql = "INSERT INTO Products (Name, VendorId) VALUES (?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, thisProduct.getName());
+            pstmt.executeUpdate();
             products.add(thisProduct);
             thisProduct = new Product();
         } catch (SQLException ex) {
