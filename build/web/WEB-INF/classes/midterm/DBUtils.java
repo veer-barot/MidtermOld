@@ -9,11 +9,11 @@ import java.util.logging.Logger;
 /**
  * A Database Utility Class
  *
- * @author <Veer barot>
+ * @author <ETNER YOUR NAME HERE>
  */
 public class DBUtils {
 
-    private final static String studentNumber = "c0719943";
+    private final static String studentNumber = "";
 
     /**
      * Utility method used to create a Database Connection
@@ -23,15 +23,15 @@ public class DBUtils {
      */
     public static Connection getConnection() throws SQLException {
         try {
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DBUtils.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String server = "localHost";
-        String username = studentNumber;
+        String server = "ipro.lambton.on.ca";
+        String username = studentNumber + "-java";
         String password = studentNumber;
         String database = username;
-        String jdbc = String.format("jdbc:derby://%s/%s", server, database);
+        String jdbc = String.format("jdbc:mysql://%s/%s", server, database);
         return DriverManager.getConnection(jdbc, username, password);
     }
 }
